@@ -1,0 +1,14 @@
+{
+    "string": "string",
+    "float": 10.99,
+    "integer": 43,
+    "array": [
+        "Introduction to ...",
+        "First Topic",
+        "Second Topic"
+    ],
+    "object": {
+        "type": "bool",
+        "value": false
+    }
+}
