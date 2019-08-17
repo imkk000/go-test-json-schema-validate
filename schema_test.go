@@ -1,7 +1,6 @@
 package schema_test
 
 import (
-	"encoding/json"
 	. "schema/model"
 	. "schema/util/check"
 	"testing"
@@ -11,7 +10,7 @@ import (
 )
 
 func TestJsonSchemaWithErrorPageNumbersLessThanZero(t *testing.T) {
-	rawJson, _ := json.Marshal(MyBook{
+	documentLoad := gojsonschema.NewGoLoader(MyBook{
 		Name:        "",
 		AuthorName:  "",
 		PageNumbers: -1,
@@ -19,7 +18,6 @@ func TestJsonSchemaWithErrorPageNumbersLessThanZero(t *testing.T) {
 		Publisher:   "",
 		CreatedDate: "2019-08-01",
 	})
-	documentLoad := gojsonschema.NewBytesLoader(rawJson)
 	valid, err := Schema.Validate(SchemaLoader(), documentLoad)
 	assert.False(t, valid)
 	assert.Equal(t, "PageNumbers: Must be greater than or equal to 0/1", err[0].String())
