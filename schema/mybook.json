@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": ["Name", "AuthorName", "PageNumbers", "Price"],
+    "properties": {
+        "Name": {"type": "string"},
+        "AuthorName": {"type": "string"},
+        "PageNumbers": {"type": "integer", "minimum": 0},
+        "Price": {"type": "number"},
+        "Publisher": {"type": "string"},
+        "CreatedDate": {"type": "string", "format": "date"}
+    }
+}
